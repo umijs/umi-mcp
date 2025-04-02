@@ -40,8 +40,9 @@ $ npm run dev:takumi
 ### Add new tool
 
 1. Edit `src/cli.ts`, add a new tool to `server.addTool()`.
-2. Extract the tool logic to new file if it's complex, and add test case if needed.
-3. It's designed for simple, which may be refactored in the future.
+2. Extract the tool logic to new file if it's complex.
+3. Add test case for the tool.
+4. It's designed for simple, which may be refactored in the future.
 
 ## Build
 
