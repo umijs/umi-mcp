@@ -1,11 +1,10 @@
-import { execSync } from 'child_process';
 import { FastMCP } from 'fastmcp';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import yParser from 'yargs-parser';
-import { z } from 'zod';
-import { parse } from './parse';
+import { umiHelp } from './tools/umi-help';
+import { ToolContext } from './types';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,16 +28,11 @@ const server = new FastMCP({
   version,
 });
 
-server.addTool({
-  name: 'umi-help',
-  description: 'Get help description for umi',
-  parameters: z.object({}),
-  execute: async () => {
-    const { binPath } = parse(root);
-    const result = execSync(`${binPath} help`);
-    return result.toString();
-  },
-});
+const toolContext: ToolContext = {
+  server,
+  root,
+};
+umiHelp(toolContext);
 
 server.start({
   transportType: 'stdio',
