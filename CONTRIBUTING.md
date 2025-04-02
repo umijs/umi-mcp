@@ -11,6 +11,12 @@ $ pnpm install
 
 ## Development
 
+### Debug with test
+
+```bash
+$ npm test
+```
+
 ### Debug with @modelcontextprotocol/inspector
 
 ```bash

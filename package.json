@@ -28,6 +28,7 @@
   "license": "MIT",
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.7.0",
+    "@modelcontextprotocol/sdk": "^1.8.0",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^22.13.10",
     "@types/yargs-parser": "^21.0.3",
@@ -39,7 +40,6 @@
     "vitest": "^3.0.9"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.8.0",
     "@types/resolve": "^1.20.6",
     "fastmcp": "^1.21.0",
     "resolve": "^1.22.10",
