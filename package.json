@@ -1,0 +1,41 @@
+{
+  "name": "umi-mcp",
+  "version": "0.0.0-alpha.0",
+  "description": "MCP collection for the umi framework.",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "umi-mcp": "./dist/cli.mjs"
+  },
+  "scripts": {
+    "dev": "tsx ./src/cli.ts",
+    "format": "prettier --write .",
+    "build": "bun build src/cli.ts --minify --outfile dist/cli.mjs --target=node",
+    "release": "utools release --git-tag --github-release --changelog",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "umi",
+    "mcp"
+  ],
+  "authors": [
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/node": "^22.13.10",
+    "@types/yargs-parser": "^21.0.3",
+    "@umijs/tools": "^0.1.34",
+    "prettier": "^3.5.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0"
+  }
+}
