@@ -32,7 +32,7 @@ Open http://localhost:5173/, then "Connect", "List Tools" and "Run Tool" with ar
 Copy `.env.example` to `.env` and set `GROQ_API_KEY` which you can get the free key from [Groq](https://console.groq.com/keys).
 
 ```bash
-$ npm run dev:takumi
+$ npm run dev:takumi <your-prompt>
 ```
 
 ![](https://cdn.jsdelivr.net/gh/sorrycc-bot/images@main/uPic/5650zH.png)
