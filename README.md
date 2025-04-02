@@ -9,7 +9,7 @@ MCP collection for the [umi](https://github.com/umijs/umi) framework.
 
 ## Features
 
-- Support umi, @umijs/max and Bigfish framework.
+- Support umi, @umijs/max and the Bigfish framework.
 
 ## Tools
 
