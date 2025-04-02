@@ -18,7 +18,7 @@ MCP collection for the [umi](https://github.com/umijs/umi) framework.
 - [ ] `umi-config-get`: Get the value of a config of the umi project.
 - [ ] `umi-config-set`: Set the value of a config of the umi project.
 - [ ] `umi-config-remove`: Remove a config of the umi project.
-- [ ] `umi-build`: Build the umi project.
+- [ ] `umi-build`: Build the umi project. (Run build and return the output, bundle size, etc.)
 - [ ] `umi-generate-page`: Generate a page of the umi project.
 - [ ] `umi-generate-xxx`, More generate tools...
 - [ ] `umi-lint`, Run the linting of the umi project.
