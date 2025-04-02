@@ -11,6 +11,10 @@ MCP collection for the [umi](https://github.com/umijs/umi) framework.
 
 - Support umi, @umijs/max and Bigfish framework.
 
+## Tools
+
+- `umi-help`: Get help description for umi.
+
 ## Usage
 
 ```bash
