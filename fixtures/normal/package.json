@@ -1,0 +1,11 @@
+{
+  "name": "umi-mcp-normal",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "umi dev"
+  },
+  "dependencies": {
+    "umi": "^4.0.0"
+  }
+}
