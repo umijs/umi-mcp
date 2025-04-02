@@ -31,6 +31,11 @@ $ npm run dev:takumi
 
 ![](https://cdn.jsdelivr.net/gh/sorrycc-bot/images@main/uPic/5650zH.png)
 
+### Add new tool
+
+1. Edit `src/cli.ts`, add a new tool to `server.addTool()`.
+2. Extract the tool logic to new file if it's complex, and add test case if needed.
+3. It's designed for simple, which may be refactored in the future.
 
 ## Build
 

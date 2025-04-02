@@ -9,12 +9,12 @@ MCP collection for the [umi](https://github.com/umijs/umi) framework.
 
 ## Features
 
-TODO
+- Support umi, @umijs/max and Bigfish framework.
 
 ## Usage
 
 ```bash
-$ npx -y umi-mcp
+$ npx -y umi-mcp <root>
 ```
 
 ## CONTRIBUTING
