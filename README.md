@@ -27,6 +27,7 @@ MCP collection for the [umi](https://github.com/umijs/umi) framework.
 - [ ] `umi-deadcode`, Find the dead code of the umi project.
 - [ ] `umi-version`, Show the version of the umi project.
 - [ ] `umi-route-list`, List all routes of the umi project. (Based on the appData under `.umi` directory)
+- [ ] `umi-appdata-list`, List detailed app data of the umi project. (Based on the appData under `.umi` directory)
 - [ ] More tools...
 
 ## Usage
