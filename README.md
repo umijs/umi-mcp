@@ -17,6 +17,10 @@ TODO
 $ npx -y umi-mcp
 ```
 
+## CONTRIBUTING
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## LICENSE
 
 [MIT](LICENSE)
