@@ -3,17 +3,17 @@ import { z } from 'zod';
 import { parse } from '../parse';
 import { ToolContext } from '../types';
 
-const umiHelp = async ({ server, root }: ToolContext) => {
+const umiBuild = async ({ server, root }: ToolContext) => {
   server.addTool({
-    name: 'umi-help',
-    description: 'Get help description for umi',
+    name: 'umi-build',
+    description: 'Build the umi project.',
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} help`);
+      const result = execSync(`${binPath} build`);
       return result.toString();
     },
   });
 };
 
-export default umiHelp;
+export default umiBuild;

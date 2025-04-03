@@ -1,18 +1,14 @@
 import { FastMCP } from 'fastmcp';
-import fs from 'fs';
+import { createRequire } from 'module';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import yParser from 'yargs-parser';
-import { umiHelp } from './tools/umi-help';
+import { umiBuild, umiConfig, umiHelp, umiVersion } from './tools';
 import { ToolContext } from './types';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const require = createRequire(import.meta.url);
+const packageJson = require('../package.json');
 
 const SERVER_NAME = 'Umi MCP Server';
-const version = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8'),
-).version;
 
 const args = yParser(process.argv.slice(2));
 const root = (() => {
@@ -25,7 +21,7 @@ const root = (() => {
 
 const server = new FastMCP({
   name: SERVER_NAME,
-  version,
+  version: packageJson.version,
 });
 
 const toolContext: ToolContext = {
@@ -33,6 +29,9 @@ const toolContext: ToolContext = {
   root,
 };
 umiHelp(toolContext);
+umiConfig(toolContext);
+umiBuild(toolContext);
+umiVersion(toolContext);
 
 server.start({
   transportType: 'stdio',
