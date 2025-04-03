@@ -3,14 +3,14 @@ import { z } from 'zod';
 import { parse } from '../parse';
 import { ToolContext } from '../types';
 
-export const umiVersion = async ({ server, root }: ToolContext) => {
+export const umiDeadcode = async ({ server, root }: ToolContext) => {
   server.addTool({
-    name: 'umi-version',
-    description: 'Get the version of the umi project.',
+    name: 'umi-deadcode',
+    description: 'Find the dead code of the umi project',
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} version`);
+      const result = execSync(`${binPath} deadcode`);
       return result.toString();
     },
   });

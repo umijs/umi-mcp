@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { parse } from '../parse';
 import { ToolContext } from '../types';
 
-const umiBuild = async ({ server, root }: ToolContext) => {
+export const umiBuild = async ({ server, root }: ToolContext) => {
   server.addTool({
     name: 'umi-build',
     description: 'Build the umi project.',
@@ -15,5 +15,3 @@ const umiBuild = async ({ server, root }: ToolContext) => {
     },
   });
 };
-
-export default umiBuild;
