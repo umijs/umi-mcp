@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { parse } from '../parse';
 import { ToolContext } from '../types';
 
-const umiConfig = async ({ server, root }: ToolContext) => {
+export const umiConfig = async ({ server, root }: ToolContext) => {
   server.addTool({
     name: 'umi-config-list',
     description: 'List all available umi config',
@@ -55,5 +55,3 @@ const umiConfig = async ({ server, root }: ToolContext) => {
     },
   });
 };
-
-export default umiConfig;

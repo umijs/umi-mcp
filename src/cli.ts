@@ -2,7 +2,15 @@ import { FastMCP } from 'fastmcp';
 import { createRequire } from 'module';
 import path from 'path';
 import yParser from 'yargs-parser';
-import { umiBuild, umiConfig, umiHelp, umiVersion } from './tools';
+import { umiBuild } from './tools/umi-build';
+import { umiConfig } from './tools/umi-config';
+import { umiDeadcode } from './tools/umi-deadcode';
+import { umiGenerate } from './tools/umi-generate';
+import { umiHelp } from './tools/umi-help';
+import { umiLint } from './tools/umi-lint';
+import { umiPlugin } from './tools/umi-plugin';
+import { umiSetup } from './tools/umi-setup';
+import { umiVersion } from './tools/umi-version';
 import { ToolContext } from './types';
 
 const require = createRequire(import.meta.url);
@@ -32,6 +40,11 @@ umiHelp(toolContext);
 umiConfig(toolContext);
 umiBuild(toolContext);
 umiVersion(toolContext);
+umiSetup(toolContext);
+umiPlugin(toolContext);
+umiGenerate(toolContext);
+umiLint(toolContext);
+umiDeadcode(toolContext);
 
 server.start({
   transportType: 'stdio',
