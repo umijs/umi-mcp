@@ -10,7 +10,7 @@ export const umiVersion = async ({ server, root }: ToolContext) => {
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} version`);
+      const result = execSync(`${binPath} version`, { cwd: root });
       return result.toString();
     },
   });

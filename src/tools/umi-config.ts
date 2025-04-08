@@ -10,7 +10,7 @@ export const umiConfig = async ({ server, root }: ToolContext) => {
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} config list`);
+      const result = execSync(`${binPath} config list`, { cwd: root });
       return result.toString();
     },
   });
@@ -23,7 +23,7 @@ export const umiConfig = async ({ server, root }: ToolContext) => {
     }),
     execute: async ({ key }) => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} config get ${key}`);
+      const result = execSync(`${binPath} config get ${key}`, { cwd: root });
       return result.toString();
     },
   });
@@ -37,7 +37,9 @@ export const umiConfig = async ({ server, root }: ToolContext) => {
     }),
     execute: async ({ key, value }) => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} config set ${key} ${value}`);
+      const result = execSync(`${binPath} config set ${key} ${value}`, {
+        cwd: root,
+      });
       return result.toString();
     },
   });
@@ -50,7 +52,9 @@ export const umiConfig = async ({ server, root }: ToolContext) => {
     }),
     execute: async ({ key }) => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} config remove ${key}`);
+      const result = execSync(`${binPath} config remove ${key}`, {
+        cwd: root,
+      });
       return result.toString();
     },
   });

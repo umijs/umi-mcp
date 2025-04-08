@@ -10,7 +10,7 @@ export const umiDeadcode = async ({ server, root }: ToolContext) => {
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} deadcode`);
+      const result = execSync(`${binPath} deadcode`, { cwd: root });
       return result.toString();
     },
   });

@@ -10,7 +10,7 @@ export const umiHelp = async ({ server, root }: ToolContext) => {
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} help`);
+      const result = execSync(`${binPath} help`, { cwd: root });
       return result.toString();
     },
   });

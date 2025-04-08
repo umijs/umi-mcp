@@ -41,7 +41,7 @@ export const umiBuild = async ({ server, root }: ToolContext) => {
         }
       });
 
-      const result = execSync(`${binPath} build`, { env });
+      const result = execSync(`${binPath} build`, { env, cwd: root });
       return result.toString();
     },
   });

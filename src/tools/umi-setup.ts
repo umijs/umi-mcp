@@ -11,7 +11,7 @@ export const umiSetup = async ({ server, root }: ToolContext) => {
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} setup`);
+      const result = execSync(`${binPath} setup`, { cwd: root });
       return result.toString();
     },
   });

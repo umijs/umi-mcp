@@ -6,3 +6,5 @@
 /REQUIREMENTS.md
 /repomix-output.txt
 /fixtures/*/node_modules
+/fixtures/*/.umi*
+/fixtures/*/dist

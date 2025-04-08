@@ -10,7 +10,7 @@ export const umiPlugin = async ({ server, root }: ToolContext) => {
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);
-      const result = execSync(`${binPath} plugin list`);
+      const result = execSync(`${binPath} plugin list`, { cwd: root });
       return result.toString();
     },
   });
