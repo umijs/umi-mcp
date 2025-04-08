@@ -8,21 +8,24 @@ export const umiBuild = async ({ server, root }: ToolContext) => {
     ANALYZE: z
       .union([z.literal(1), z.literal(0)])
       .optional()
-      .describe('用于分析 bundle 构成，默认关闭。'),
-    ANALYZE_PORT: z.number().optional().describe('自定义端口'),
+      .describe('Analyze the bundle composition, disabled by default.'),
+    ANALYZE_PORT: z.number().optional().describe('Custom port'),
     BABEL_POLYFILL: z
       .enum(['none'])
       .optional()
-      .describe('值为 none 禁用内置的补丁方案'),
-    COMPRESS: z.enum(['none']).optional().describe('值为 none 时不压缩'),
+      .describe("Value 'none' disables the built-in patching scheme"),
+    COMPRESS: z
+      .enum(['none'])
+      .optional()
+      .describe("Value 'none' disables compression"),
     FS_LOGGER: z
       .enum(['none'])
       .optional()
-      .describe('值为 none 时不保存物理日志'),
+      .describe("Value 'none' disables saving physical logs"),
     SPEED_MEASURE: z
       .union([z.literal('CONSOLE'), z.literal('JSON')])
       .optional()
-      .describe('分析 Webpack 编译时间'),
+      .describe('Analyze Webpack compilation time'),
   });
 
   server.addTool({
