@@ -11,7 +11,7 @@ alwaysApply: false
   - type: feat|fix|docs|style|refactor|test|chore|perf
   - scope: Optional, the scope of the changes
   - subject: A concise description of the changes
-- Keep the commit message as short as possible
+- Keep the commit message as short as possible, changes on doc could be omited
 
 <example>
 feat(auth): add agent command
