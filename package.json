@@ -1,6 +1,6 @@
 {
   "name": "umi-mcp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "MCP collection for the umi framework.",
   "type": "module",
   "files": [

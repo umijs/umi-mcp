@@ -1,3 +1,13 @@
+## 0.0.1
+
+`2025-04-08`
+
+- feat: add GitHub Actions CI workflow for running tests by [@sorrycc](https://github.com/sorrycc)
+- Update build command in package.json to include external dependencies for improved bundling. by [@sorrycc](https://github.com/sorrycc)
+- Update CI badge link in README.md to reflect the correct repository for the umi-mcp project. by [@sorrycc](https://github.com/sorrycc)
+- feat: add some tools by [@Wu-kung](https://github.com/Wu-kung) in [#2](https://github.com/umijs/umi-mcp/pull/2)
+
+
 ## 0.0.0
 
 `2025-04-03`
