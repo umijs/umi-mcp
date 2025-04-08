@@ -1,6 +1,7 @@
 ---
 description: Commit Message
 globs: 
+alwaysApply: false
 ---
 
 # Your rule content
@@ -10,6 +11,7 @@ globs:
   - type: feat|fix|docs|style|refactor|test|chore|perf
   - scope: Optional, the scope of the changes
   - subject: A concise description of the changes
+- Keep the commit message as short as possible
 
 <example>
 feat(auth): add agent command

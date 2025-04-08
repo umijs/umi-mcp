@@ -39,9 +39,11 @@ Copy `.env.example` to `.env` and set `GROQ_API_KEY` which you can get the free 
 
 ```bash
 $ npm run dev:takumi <your-prompt>
+# or if you want to test the dist version
+$ npm run dev:takumi:prod <your-prompt>
 ```
 
-![](https://cdn.jsdelivr.net/gh/sorrycc-bot/images@main/uPic/5650zH.png)
+![](https://cdn.jsdelivr.net/gh/sorrycc-bot/images@main/uPic/Cursor 2025-04-08 17.30.37.png)
 
 ### Add new tool
 

@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "mcp-inspector tsx ./src/cli.ts fixtures/normal",
     "dev:takumi": "takumi --mcp 'tsx ./src/cli.ts fixtures/normal' --model=Groq/qwen-qwq-32b",
+    "dev:takumi:prod": "takumi --mcp 'node dist/cli.mjs fixtures/normal' --model=Groq/qwen-qwq-32b",
     "format": "prettier --write .",
     "build": "bun build src/cli.ts --external effect --external @valibot/to-json-schema --minify --outfile dist/cli.mjs --target=node",
     "release": "utools release --git-tag --github-release --changelog",
