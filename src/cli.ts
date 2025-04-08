@@ -1,3 +1,4 @@
+#!/usr/bin/env -S node --no-warnings=ExperimentalWarning
 import { FastMCP } from 'fastmcp';
 import { createRequire } from 'module';
 import path from 'path';
