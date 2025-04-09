@@ -3,10 +3,14 @@ import { z } from 'zod';
 import { parse } from '../parse';
 import { ToolContext } from '../types';
 
-export const umiVersion = async ({ server, root }: ToolContext) => {
+export const umiVersion = async ({
+  server,
+  root,
+  frameworkName,
+}: ToolContext) => {
   server.addTool({
     name: 'umi-version',
-    description: 'Get the version of the umi project.',
+    description: `Get the version of the ${frameworkName} project.`,
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);

@@ -32,13 +32,17 @@ const executeGenerator = (command: string, cwd: string): string => {
   return result.toString();
 };
 
-export const umiGenerate = async ({ server, root }: ToolContext) => {
+export const umiGenerate = async ({
+  server,
+  root,
+  frameworkName,
+}: ToolContext) => {
   const { binPath } = parse(root);
 
   // 页面生成器
   server.addTool({
     name: 'umi-generate-page',
-    description: 'Generate a page for the umi project',
+    description: `Generate a page for the ${frameworkName} project`,
     parameters: z.object({
       name: z.string().describe('Page name to generate'),
       dir: z
@@ -60,7 +64,7 @@ export const umiGenerate = async ({ server, root }: ToolContext) => {
   // 组件生成器
   server.addTool({
     name: 'umi-generate-component',
-    description: 'Generate a component for the umi project',
+    description: `Generate a component for the ${frameworkName} project`,
     parameters: z.object({
       name: z.string().describe('Component name to generate'),
     }),
@@ -77,7 +81,7 @@ export const umiGenerate = async ({ server, root }: ToolContext) => {
   // RouteAPI 生成器
   server.addTool({
     name: 'umi-generate-api',
-    description: 'Generate a route API for the umi project',
+    description: `Generate a route API for the ${frameworkName} project`,
     parameters: z.object({
       name: z.string().describe('API route name to generate'),
     }),
@@ -93,7 +97,7 @@ export const umiGenerate = async ({ server, root }: ToolContext) => {
   // Mock 生成器
   server.addTool({
     name: 'umi-generate-mock',
-    description: 'Generate a mock file for the umi project',
+    description: `Generate a mock file for the ${frameworkName} project`,
     parameters: z.object({
       name: z.string().describe('Mock file name to generate'),
     }),
@@ -109,7 +113,7 @@ export const umiGenerate = async ({ server, root }: ToolContext) => {
   // Prettier 生成器、Jest 生成器、TailwindCSS 生成器、Dva 生成器、Precommit 生成器
   server.addTool({
     name: 'umi-generate-others',
-    description: 'Generate more tools for the umi project',
+    description: `Generate more tools for the ${frameworkName} project`,
     parameters: z.object({
       type: z
         .enum(['prettier', 'jest', 'tailwindcss', 'dva', 'precommit'])

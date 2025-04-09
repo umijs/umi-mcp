@@ -3,10 +3,10 @@ import { z } from 'zod';
 import { parse } from '../parse';
 import { ToolContext } from '../types';
 
-export const umiLint = async ({ server, root }: ToolContext) => {
+export const umiLint = async ({ server, root, frameworkName }: ToolContext) => {
   server.addTool({
     name: 'umi-lint',
-    description: 'Run the linting of the umi project',
+    description: `Run the linting of the ${frameworkName} project`,
     parameters: z.object({
       fix: z.boolean().optional().describe('Fix lint automatically'),
       eslintOnly: z

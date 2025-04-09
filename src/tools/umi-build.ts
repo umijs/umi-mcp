@@ -3,7 +3,11 @@ import { z } from 'zod';
 import { parse } from '../parse';
 import { ToolContext } from '../types';
 
-export const umiBuild = async ({ server, root }: ToolContext) => {
+export const umiBuild = async ({
+  server,
+  root,
+  frameworkName,
+}: ToolContext) => {
   const BuildParams = z.object({
     ANALYZE: z
       .union([z.literal(1), z.literal(0)])
@@ -30,7 +34,7 @@ export const umiBuild = async ({ server, root }: ToolContext) => {
 
   server.addTool({
     name: 'umi-build',
-    description: 'Build the umi project.',
+    description: `Build the ${frameworkName} project.`,
     parameters: BuildParams,
     execute: async (params) => {
       const { binPath } = parse(root);

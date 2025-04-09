@@ -3,10 +3,14 @@ import { z } from 'zod';
 import { parse } from '../parse';
 import { ToolContext } from '../types';
 
-export const umiConfig = async ({ server, root }: ToolContext) => {
+export const umiConfig = async ({
+  server,
+  root,
+  frameworkName,
+}: ToolContext) => {
   server.addTool({
     name: 'umi-config-list',
-    description: 'List all available umi config',
+    description: `List all available ${frameworkName} config`,
     parameters: z.object({}),
     execute: async () => {
       const { binPath } = parse(root);
@@ -17,7 +21,7 @@ export const umiConfig = async ({ server, root }: ToolContext) => {
 
   server.addTool({
     name: 'umi-config-get',
-    description: 'Get the value of a config of the umi project',
+    description: `Get the value of a config of the ${frameworkName} project`,
     parameters: z.object({
       key: z.string(),
     }),
@@ -30,7 +34,7 @@ export const umiConfig = async ({ server, root }: ToolContext) => {
 
   server.addTool({
     name: 'umi-config-set',
-    description: 'Set the value of a config of the umi project',
+    description: `Set the value of a config of the ${frameworkName} project`,
     parameters: z.object({
       key: z.string(),
       value: z.string(),
@@ -46,7 +50,7 @@ export const umiConfig = async ({ server, root }: ToolContext) => {
 
   server.addTool({
     name: 'umi-config-remove',
-    description: 'Remove a config of the umi project',
+    description: `Remove a config of the ${frameworkName} project`,
     parameters: z.object({
       key: z.string(),
     }),
