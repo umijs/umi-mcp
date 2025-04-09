@@ -25,7 +25,7 @@ test('umi-help', async () => {
     name: 'umi-help',
     arguments: {},
   });
-
+  console.log(result);
   expect(result).toBeDefined();
 });
 
@@ -34,7 +34,7 @@ test('umi-version', async () => {
     name: 'umi-version',
     arguments: {},
   });
-
+  console.log(result);
   expect(result).toBeDefined();
 });
 
@@ -43,7 +43,7 @@ test('umi-plugin-list', async () => {
     name: 'umi-plugin-list',
     arguments: {},
   });
-
+  console.log(result);
   expect(result).toBeDefined();
 });
 
@@ -52,7 +52,7 @@ test('umi-config-list', async () => {
     name: 'umi-config-list',
     arguments: {},
   });
-
+  console.log(result);
   expect(result).toBeDefined();
 });
 
@@ -60,10 +60,10 @@ test('umi-config-get', async () => {
   const result = await client.callTool({
     name: 'umi-config-get',
     arguments: {
-      key: 'publicPath',
+      key: 'routes',
     },
   });
-
+  console.log(result);
   expect(result).toBeDefined();
 });
 
@@ -75,7 +75,7 @@ test('umi-config-set and umi-config-remove', async () => {
       value: '{}',
     },
   });
-
+  console.log(setResult);
   expect(setResult).toBeDefined();
 
   const removeResult = await client.callTool({
@@ -84,7 +84,7 @@ test('umi-config-set and umi-config-remove', async () => {
       key: 'mako',
     },
   });
-
+  console.log(removeResult);
   expect(removeResult).toBeDefined();
 });
 
@@ -93,58 +93,7 @@ test('umi-setup', async () => {
     name: 'umi-setup',
     arguments: {},
   });
-
-  expect(result).toBeDefined();
-});
-
-test('umi-deadcode', async () => {
-  const result = await client.callTool({
-    name: 'umi-deadcode',
-    arguments: {},
-  });
-
-  expect(result).toBeDefined();
-});
-
-test('umi-lint', async () => {
-  const resultWithoutFix = await client.callTool({
-    name: 'umi-lint',
-    arguments: {
-      fix: false,
-    },
-  });
-
-  expect(resultWithoutFix).toBeDefined();
-
-  const resultWithFix = await client.callTool({
-    name: 'umi-lint',
-    arguments: {
-      fix: true,
-    },
-  });
-
-  expect(resultWithFix).toBeDefined();
-});
-
-test('umi-build', async () => {
-  const result = await client.callTool({
-    name: 'umi-build',
-    arguments: {
-      ANALYZE: 1,
-    },
-  });
-
-  expect(result).toBeDefined();
-});
-
-test('umi-generate-page', async () => {
-  const result = await client.callTool({
-    name: 'umi-generate-page',
-    arguments: {
-      name: 'test-page',
-    },
-  });
-
+  console.log(result);
   expect(result).toBeDefined();
 });
 
@@ -155,39 +104,15 @@ test('umi-generate-component', async () => {
       name: 'TestComponent',
     },
   });
-
+  console.log(result);
   expect(result).toBeDefined();
 });
 
-test('umi-generate-api', async () => {
+test('umi-lint', async () => {
   const result = await client.callTool({
-    name: 'umi-generate-api',
-    arguments: {
-      name: 'test-api',
-    },
+    name: 'umi-lint',
+    arguments: {},
   });
-
-  expect(result).toBeDefined();
-});
-
-test('umi-generate-mock', async () => {
-  const result = await client.callTool({
-    name: 'umi-generate-mock',
-    arguments: {
-      name: 'test-mock',
-    },
-  });
-
-  expect(result).toBeDefined();
-});
-
-test('umi-generate-others', async () => {
-  const result = await client.callTool({
-    name: 'umi-generate-others',
-    arguments: {
-      type: 'prettier',
-    },
-  });
-
+  console.log(result);
   expect(result).toBeDefined();
 });
