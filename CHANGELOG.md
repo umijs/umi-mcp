@@ -1,3 +1,10 @@
+## 0.0.7
+
+`2025-04-09`
+
+- feat: enhance tools to include framework name in descriptions and update ToolContext type by [@sorrycc](https://github.com/sorrycc)
+
+
 ## 0.0.6
 
 `2025-04-09`
