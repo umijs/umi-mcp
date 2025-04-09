@@ -7,7 +7,7 @@
 
 MCP collection for the [umi](https://github.com/umijs/umi) framework.
 
-![](https://cdn.jsdelivr.net/gh/sorrycc-bot/images@main/uPic/umi-mcp.gif)
+![](./assets/umi-mcp.gif)
 
 ## Features
 
