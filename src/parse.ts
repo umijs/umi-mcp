@@ -8,10 +8,9 @@ export function parse(root: string) {
     throw new UserError(`Root directory not found: ${root}`);
   }
   const pkgPath = path.join(root, 'package.json');
-  if (!fs.existsSync(pkgPath)) {
-    throw new UserError(`package.json not found: ${pkgPath}`);
-  }
-  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+  const pkg = fs.existsSync(pkgPath)
+    ? JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+    : {};
   const deps = Object.keys(pkg.dependencies || {}).concat(
     Object.keys(pkg.devDependencies || {}),
   );

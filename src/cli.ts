@@ -4,6 +4,7 @@ import { createRequire } from 'module';
 import path from 'path';
 import yParser from 'yargs-parser';
 import { registerTools } from '.';
+import { parse } from './parse';
 
 const require = createRequire(import.meta.url);
 const packageJson = require('../package.json');
@@ -24,9 +25,11 @@ const server = new FastMCP({
   version: packageJson.version,
 });
 
+const { binName } = parse(root);
 registerTools({
   server,
   root,
+  frameworkName: binName as 'umi' | 'bigfish' | 'max',
 });
 
 server.start({
