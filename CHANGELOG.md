@@ -1,3 +1,10 @@
+## 0.0.5
+
+`2025-04-09`
+
+- feat: export registerTools by [@sorrycc](https://github.com/sorrycc)
+
+
 ## 0.0.4
 
 `2025-04-08`
