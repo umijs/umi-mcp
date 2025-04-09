@@ -9,7 +9,6 @@ type GeneratorOptions = {
   args?: Record<string, any>;
 };
 
-// 生成命令的工具函数
 const buildCommand = (
   binPath: string,
   { type, name, args = {} }: GeneratorOptions,
@@ -28,8 +27,8 @@ const buildCommand = (
   return command;
 };
 
-const executeGenerator = (command: string): string => {
-  const result = execSync(command);
+const executeGenerator = (command: string, cwd: string): string => {
+  const result = execSync(command, { cwd });
   return result.toString();
 };
 
@@ -54,7 +53,7 @@ export const umiGenerate = async ({ server, root }: ToolContext) => {
         name: params.name,
         args: params,
       });
-      return executeGenerator(command);
+      return executeGenerator(command, root);
     },
   });
 
@@ -71,7 +70,7 @@ export const umiGenerate = async ({ server, root }: ToolContext) => {
         name: params.name,
         args: params,
       });
-      return executeGenerator(command);
+      return executeGenerator(command, root);
     },
   });
 
@@ -87,7 +86,7 @@ export const umiGenerate = async ({ server, root }: ToolContext) => {
         type: 'api',
         name: params.name,
       });
-      return executeGenerator(command);
+      return executeGenerator(command, root);
     },
   });
 
@@ -103,7 +102,7 @@ export const umiGenerate = async ({ server, root }: ToolContext) => {
         type: 'mock',
         name: params.name,
       });
-      return executeGenerator(command);
+      return executeGenerator(command, root);
     },
   });
 
@@ -119,7 +118,7 @@ export const umiGenerate = async ({ server, root }: ToolContext) => {
         ),
     }),
     execute: async (params) => {
-      return executeGenerator(`${binPath} g ${params.type}`);
+      return executeGenerator(`${binPath} g ${params.type}`, root);
     },
   });
 };

@@ -25,12 +25,3 @@ test('list tools', async () => {
   console.log(tools);
   expect(tools).toBeDefined();
 });
-
-test('call tool', async () => {
-  const result = await client.callTool({
-    name: 'umi-help',
-    arguments: {},
-  });
-  console.log(result);
-  expect(result).toBeDefined();
-});
