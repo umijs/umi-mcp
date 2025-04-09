@@ -1,3 +1,10 @@
+## 0.0.6
+
+`2025-04-09`
+
+- feat: integrate framework name parsing into registerTools by [@sorrycc](https://github.com/sorrycc)
+
+
 ## 0.0.5
 
 `2025-04-09`
