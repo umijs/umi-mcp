@@ -9,7 +9,7 @@ export const umiPlugin = async ({
   frameworkName,
 }: ToolContext) => {
   server.addTool({
-    name: 'umi-plugin-list',
+    name: `${frameworkName}-plugin-list`,
     description: `List all plugins of the ${frameworkName} project`,
     parameters: z.object({}),
     execute: async () => {

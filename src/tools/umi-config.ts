@@ -9,7 +9,7 @@ export const umiConfig = async ({
   frameworkName,
 }: ToolContext) => {
   server.addTool({
-    name: 'umi-config-list',
+    name: `${frameworkName}-config-list`,
     description: `List all available ${frameworkName} config`,
     parameters: z.object({}),
     execute: async () => {
@@ -20,7 +20,7 @@ export const umiConfig = async ({
   });
 
   server.addTool({
-    name: 'umi-config-get',
+    name: `${frameworkName}-config-get`,
     description: `Get the value of a config of the ${frameworkName} project`,
     parameters: z.object({
       key: z.string(),
@@ -33,7 +33,7 @@ export const umiConfig = async ({
   });
 
   server.addTool({
-    name: 'umi-config-set',
+    name: `${frameworkName}-config-set`,
     description: `Set the value of a config of the ${frameworkName} project`,
     parameters: z.object({
       key: z.string(),
@@ -49,7 +49,7 @@ export const umiConfig = async ({
   });
 
   server.addTool({
-    name: 'umi-config-remove',
+    name: `${frameworkName}-config-remove`,
     description: `Remove a config of the ${frameworkName} project`,
     parameters: z.object({
       key: z.string(),

@@ -5,7 +5,7 @@ import { ToolContext } from '../types';
 
 export const umiHelp = async ({ server, root, frameworkName }: ToolContext) => {
   server.addTool({
-    name: 'umi-help',
+    name: `${frameworkName}-help`,
     description: `Get help description for ${frameworkName}`,
     parameters: z.object({}),
     execute: async () => {

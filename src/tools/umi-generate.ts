@@ -41,7 +41,7 @@ export const umiGenerate = async ({
 
   // 页面生成器
   server.addTool({
-    name: 'umi-generate-page',
+    name: `${frameworkName}-generate-page`,
     description: `Generate a page for the ${frameworkName} project`,
     parameters: z.object({
       name: z.string().describe('Page name to generate'),
@@ -63,7 +63,7 @@ export const umiGenerate = async ({
 
   // 组件生成器
   server.addTool({
-    name: 'umi-generate-component',
+    name: `${frameworkName}-generate-component`,
     description: `Generate a component for the ${frameworkName} project`,
     parameters: z.object({
       name: z.string().describe('Component name to generate'),
@@ -80,7 +80,7 @@ export const umiGenerate = async ({
 
   // RouteAPI 生成器
   server.addTool({
-    name: 'umi-generate-api',
+    name: `${frameworkName}-generate-api`,
     description: `Generate a route API for the ${frameworkName} project`,
     parameters: z.object({
       name: z.string().describe('API route name to generate'),
@@ -96,7 +96,7 @@ export const umiGenerate = async ({
 
   // Mock 生成器
   server.addTool({
-    name: 'umi-generate-mock',
+    name: `${frameworkName}-generate-mock`,
     description: `Generate a mock file for the ${frameworkName} project`,
     parameters: z.object({
       name: z.string().describe('Mock file name to generate'),
@@ -112,7 +112,7 @@ export const umiGenerate = async ({
 
   // Prettier 生成器、Jest 生成器、TailwindCSS 生成器、Dva 生成器、Precommit 生成器
   server.addTool({
-    name: 'umi-generate-others',
+    name: `${frameworkName}-generate-others`,
     description: `Generate more tools for the ${frameworkName} project`,
     parameters: z.object({
       type: z

@@ -33,7 +33,7 @@ export const umiBuild = async ({
   });
 
   server.addTool({
-    name: 'umi-build',
+    name: `${frameworkName}-build`,
     description: `Build the ${frameworkName} project.`,
     parameters: BuildParams,
     execute: async (params) => {

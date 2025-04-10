@@ -5,7 +5,7 @@ import { ToolContext } from '../types';
 
 export const umiLint = async ({ server, root, frameworkName }: ToolContext) => {
   server.addTool({
-    name: 'umi-lint',
+    name: `${frameworkName}-lint`,
     description: `Run the linting of the ${frameworkName} project`,
     parameters: z.object({
       fix: z.boolean().optional().describe('Fix lint automatically'),
