@@ -1,3 +1,10 @@
+## 0.0.9
+
+`2025-04-10`
+
+- refactor(tools): replace hardcoded 'umi' with dynamic framework name by [@Wu-kung](https://github.com/Wu-kung) in [#6](https://github.com/umijs/umi-mcp/pull/6)
+
+
 ## 0.0.8
 
 `2025-04-09`
