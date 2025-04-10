@@ -9,7 +9,7 @@ export const umiSetup = async ({
   frameworkName,
 }: ToolContext) => {
   server.addTool({
-    name: 'umi-setup',
+    name: `${frameworkName}-setup`,
     description: `Setup the ${frameworkName} project and generate tmp files in the .umi directory`,
     parameters: z.object({}),
     execute: async () => {

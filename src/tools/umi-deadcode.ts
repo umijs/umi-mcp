@@ -9,7 +9,7 @@ export const umiDeadcode = async ({
   frameworkName,
 }: ToolContext) => {
   server.addTool({
-    name: 'umi-deadcode',
+    name: `${frameworkName}-deadcode`,
     description: `Find the dead code of the ${frameworkName} project`,
     parameters: z.object({}),
     execute: async () => {

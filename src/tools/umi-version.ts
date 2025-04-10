@@ -9,7 +9,7 @@ export const umiVersion = async ({
   frameworkName,
 }: ToolContext) => {
   server.addTool({
-    name: 'umi-version',
+    name: `${frameworkName}-version`,
     description: `Get the version of the ${frameworkName} project.`,
     parameters: z.object({}),
     execute: async () => {
