@@ -28,13 +28,31 @@ MCP collection for the [umi](https://github.com/umijs/umi) framework.
 - `umi-setup`, Setup the umi project and generate the tmp files in the `.umi` directory.
 - `umi-deadcode`, Find the dead code of the umi project.
 - `umi-version`, Show the version of the umi project.
-- [ ] `umi-route-list`, List all routes of the umi project. (Based on the appData under `.umi` directory)
-- [ ] `umi-appdata-list`, List detailed app data of the umi project. (Based on the appData under `.umi` directory)
+- `umi-route-list`, List all routes of the umi project. (Based on the appData under `.umi` directory)
+- `umi-appdata-list`, List detailed app data of the umi project. (Based on the appData under `.umi` directory)
+- `umi-changelog`, Show the changelog of the umi and @umijs/max.
 
 ## Usage
 
 ```bash
 $ npx -y umi-mcp <root>
+```
+### Usage with Cursor
+add the following to your `<root>/.cursor/mcp.json`:
+#### NPX
+```json
+{
+  "mcpServers": {
+    "umi-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "umi-mcp",
+        "<root>"
+      ]
+    }
+  }
+}
 ```
 
 ## CONTRIBUTING

@@ -10,7 +10,7 @@ export const umiBuild = async ({
 }: ToolContext) => {
   const BuildParams = z.object({
     ANALYZE: z
-      .union([z.literal(1), z.literal(0)])
+      .literal(1)
       .optional()
       .describe('Analyze the bundle composition, disabled by default.'),
     ANALYZE_PORT: z.number().optional().describe('Custom port'),
@@ -37,16 +37,25 @@ export const umiBuild = async ({
     description: `Build the ${frameworkName} project.`,
     parameters: BuildParams,
     execute: async (params) => {
-      const { binPath } = parse(root);
-      const env = { ...process.env };
-      Object.entries(params).forEach(([key, value]) => {
-        if (value !== undefined) {
-          env[key] = typeof value === 'number' ? value.toString() : value;
+      try {
+        const { binPath } = parse(root);
+        const env = { ...process.env };
+        for (const [key, value] of Object.entries(params)) {
+          if (value !== undefined && (value === 1 || value === 'none')) {
+            env[key] = typeof value === 'number' ? value.toString() : value;
+          }
         }
-      });
-
-      const result = execSync(`${binPath} build`, { env, cwd: root });
-      return result.toString();
+        const result = execSync(`${binPath} build`, {
+          env,
+          cwd: root,
+          timeout: 5 * 60000,
+        });
+        return result.toString();
+      } catch (error) {
+        throw new Error(
+          `Build failed. Please check the error message above.\n${error}`,
+        );
+      }
     },
   });
 };
