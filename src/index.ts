@@ -24,5 +24,5 @@ export function registerTools(toolContext: ToolContext) {
   umiLint(toolContext);
   umiRouteList(toolContext);
   umiAppdataList(toolContext);
-  umiChangelog(toolContext);
+  // umiChangelog(toolContext); // Temporarily commented out as not needed
 }
