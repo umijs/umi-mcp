@@ -15,7 +15,7 @@ export const umiRouteList = async ({
     name: `${frameworkName}-route-list`,
     description: `List the routes of the ${frameworkName} project.`,
     parameters: z.object({}),
-    execute: async () => {
+    execute: async (): Promise<any> => {
       try {
         const { absTmpPath } = getPaths(root, frameworkName);
 

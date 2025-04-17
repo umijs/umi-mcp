@@ -36,7 +36,7 @@ export const umiBuild = async ({
     name: `${frameworkName}-build`,
     description: `Build the ${frameworkName} project.`,
     parameters: BuildParams,
-    execute: async (params) => {
+    execute: async (params): Promise<any> => {
       try {
         const { binPath } = parse(root);
         const env = { ...process.env };

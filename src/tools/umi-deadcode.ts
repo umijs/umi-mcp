@@ -12,7 +12,7 @@ export const umiDeadcode = async ({
     name: `${frameworkName}-deadcode`,
     description: `Find the dead code of the ${frameworkName} project`,
     parameters: z.object({}),
-    execute: async () => {
+    execute: async (): Promise<any> => {
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} deadcode`, { cwd: root });

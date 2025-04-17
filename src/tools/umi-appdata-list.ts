@@ -15,7 +15,7 @@ export const umiAppdataList = async ({
     name: `${frameworkName}-appdata-list`,
     description: `List the appData of the ${frameworkName} project.`,
     parameters: z.object({}),
-    execute: async () => {
+    execute: async (): Promise<any> => {
       try {
         const { absTmpPath } = getPaths(root, frameworkName);
 

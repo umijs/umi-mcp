@@ -12,7 +12,7 @@ export const umiConfig = async ({
     name: `${frameworkName}-config-list`,
     description: `List all available ${frameworkName} config`,
     parameters: z.object({}),
-    execute: async () => {
+    execute: async (): Promise<any> => {
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} config list`, { cwd: root });
@@ -29,7 +29,7 @@ export const umiConfig = async ({
     parameters: z.object({
       key: z.string(),
     }),
-    execute: async ({ key }) => {
+    execute: async ({ key }): Promise<any> => {
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} config get ${key}`, { cwd: root });
@@ -47,7 +47,7 @@ export const umiConfig = async ({
       key: z.string(),
       value: z.string(),
     }),
-    execute: async ({ key, value }) => {
+    execute: async ({ key, value }): Promise<any> => {
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} config set ${key} ${value}`, {
@@ -66,7 +66,7 @@ export const umiConfig = async ({
     parameters: z.object({
       key: z.string(),
     }),
-    execute: async ({ key }) => {
+    execute: async ({ key }): Promise<any> => {
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} config remove ${key}`, {

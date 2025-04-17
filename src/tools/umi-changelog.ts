@@ -10,7 +10,7 @@ export const umiChangelog = async ({ server }: ToolContext) => {
         .string()
         .describe('Get the changelog for the current version,eg: 4.4.6'),
     }),
-    execute: async ({ version }) => {
+    execute: async ({ version }): Promise<any> => {
       try {
         const result = await fetch(
           `https://api.github.com/repos/umijs/umi/releases/tags/v${version}`,

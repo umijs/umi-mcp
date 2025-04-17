@@ -8,7 +8,7 @@ export const umiHelp = async ({ server, root, frameworkName }: ToolContext) => {
     name: `${frameworkName}-help`,
     description: `Get help description for ${frameworkName}`,
     parameters: z.object({}),
-    execute: async () => {
+    execute: async (): Promise<any> => {
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} help`, { cwd: root });

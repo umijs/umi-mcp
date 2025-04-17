@@ -51,7 +51,7 @@ export const umiGenerate = async ({
         .default(false)
         .describe('Generate as directory structure'),
     }),
-    execute: async (params) => {
+    execute: async (params): Promise<any> => {
       try {
         const command = buildCommand(binPath, {
           type: 'page',
@@ -73,7 +73,7 @@ export const umiGenerate = async ({
     parameters: z.object({
       name: z.string().describe('Component name to generate'),
     }),
-    execute: async (params) => {
+    execute: async (params): Promise<any> => {
       try {
         const command = buildCommand(binPath, {
           type: 'component',
@@ -95,7 +95,7 @@ export const umiGenerate = async ({
     parameters: z.object({
       name: z.string().describe('API route name to generate'),
     }),
-    execute: async (params) => {
+    execute: async (params): Promise<any> => {
       try {
         const command = buildCommand(binPath, {
           type: 'api',
@@ -116,7 +116,7 @@ export const umiGenerate = async ({
     parameters: z.object({
       name: z.string().describe('Mock file name to generate'),
     }),
-    execute: async (params) => {
+    execute: async (params): Promise<any> => {
       try {
         const command = buildCommand(binPath, {
           type: 'mock',
@@ -141,7 +141,7 @@ export const umiGenerate = async ({
           'Configuration type to generate, e.g. prettier, jest, tailwindcss, dva, precommit',
         ),
     }),
-    execute: async (params) => {
+    execute: async (params): Promise<any> => {
       try {
         const result = executeGenerator(`${binPath} g ${params.type}`, root);
         return { success: true, data: result };

@@ -12,7 +12,7 @@ export const umiVersion = async ({
     name: `${frameworkName}-version`,
     description: `Get the version of the ${frameworkName} project.`,
     parameters: z.object({}),
-    execute: async () => {
+    execute: async (): Promise<any> => {
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} version`, { cwd: root });

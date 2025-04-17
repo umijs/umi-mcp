@@ -22,7 +22,7 @@ export const umiLint = async ({ server, root, frameworkName }: ToolContext) => {
         .optional()
         .describe('Enable cssinjs mode for stylelint'),
     }),
-    execute: async (params) => {
+    execute: async (params): Promise<any> => {
       try {
         const { fix, eslintOnly, stylelintOnly, cssinjs } = params;
         const { binPath, isUmi } = parse(root);

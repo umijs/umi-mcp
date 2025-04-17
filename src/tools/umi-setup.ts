@@ -12,7 +12,7 @@ export const umiSetup = async ({
     name: `${frameworkName}-setup`,
     description: `Setup the ${frameworkName} project and generate tmp files in the .umi directory`,
     parameters: z.object({}),
-    execute: async () => {
+    execute: async (): Promise<any> => {
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} setup`, { cwd: root });
