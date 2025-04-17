@@ -22,7 +22,8 @@
     "build": "pnpm run build:cli && pnpm run build:index",
     "release": "utools release --git-tag --github-release --changelog",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "umi",
