@@ -1,3 +1,12 @@
+## 0.0.10
+
+`2025-04-17`
+
+- refactor(tools): add return type Promise<any> to execute functions across various tools by [@sorrycc](https://github.com/sorrycc)
+- refactor(tools): enhance error handling and response structure across various tools by [@sorrycc](https://github.com/sorrycc)
+- feat: add new tools for routes, appdata and changelog by [@Wu-kung](https://github.com/Wu-kung) in [#7](https://github.com/umijs/umi-mcp/pull/7)
+
+
 ## 0.0.9
 
 `2025-04-10`
