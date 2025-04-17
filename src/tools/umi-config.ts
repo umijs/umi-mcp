@@ -13,9 +13,13 @@ export const umiConfig = async ({
     description: `List all available ${frameworkName} config`,
     parameters: z.object({}),
     execute: async () => {
-      const { binPath } = parse(root);
-      const result = execSync(`${binPath} config list`, { cwd: root });
-      return result.toString();
+      try {
+        const { binPath } = parse(root);
+        const result = execSync(`${binPath} config list`, { cwd: root });
+        return { success: true, data: result.toString() };
+      } catch (error: any) {
+        return { success: false, data: error.message || 'Failed to list config' };
+      }
     },
   });
 
@@ -26,9 +30,13 @@ export const umiConfig = async ({
       key: z.string(),
     }),
     execute: async ({ key }) => {
-      const { binPath } = parse(root);
-      const result = execSync(`${binPath} config get ${key}`, { cwd: root });
-      return result.toString();
+      try {
+        const { binPath } = parse(root);
+        const result = execSync(`${binPath} config get ${key}`, { cwd: root });
+        return { success: true, data: result.toString() };
+      } catch (error: any) {
+        return { success: false, data: error.message || `Failed to get config key ${key}` };
+      }
     },
   });
 
@@ -40,11 +48,15 @@ export const umiConfig = async ({
       value: z.string(),
     }),
     execute: async ({ key, value }) => {
-      const { binPath } = parse(root);
-      const result = execSync(`${binPath} config set ${key} ${value}`, {
-        cwd: root,
-      });
-      return result.toString();
+      try {
+        const { binPath } = parse(root);
+        const result = execSync(`${binPath} config set ${key} ${value}`, {
+          cwd: root,
+        });
+        return { success: true, data: result.toString() };
+      } catch (error: any) {
+        return { success: false, data: error.message || `Failed to set config key ${key}` };
+      }
     },
   });
 
@@ -55,11 +67,15 @@ export const umiConfig = async ({
       key: z.string(),
     }),
     execute: async ({ key }) => {
-      const { binPath } = parse(root);
-      const result = execSync(`${binPath} config remove ${key}`, {
-        cwd: root,
-      });
-      return result.toString();
+      try {
+        const { binPath } = parse(root);
+        const result = execSync(`${binPath} config remove ${key}`, {
+          cwd: root,
+        });
+        return { success: true, data: result.toString() };
+      } catch (error: any) {
+        return { success: false, data: error.message || `Failed to remove config key ${key}` };
+      }
     },
   });
 };

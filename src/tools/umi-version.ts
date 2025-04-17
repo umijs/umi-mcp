@@ -13,9 +13,13 @@ export const umiVersion = async ({
     description: `Get the version of the ${frameworkName} project.`,
     parameters: z.object({}),
     execute: async () => {
-      const { binPath } = parse(root);
-      const result = execSync(`${binPath} version`, { cwd: root });
-      return result.toString();
+      try {
+        const { binPath } = parse(root);
+        const result = execSync(`${binPath} version`, { cwd: root });
+        return { success: true, data: result.toString() };
+      } catch (error: any) {
+        return { success: false, data: error.message || 'Failed to get version' };
+      }
     },
   });
 };

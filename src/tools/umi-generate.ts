@@ -52,12 +52,17 @@ export const umiGenerate = async ({
         .describe('Generate as directory structure'),
     }),
     execute: async (params) => {
-      const command = buildCommand(binPath, {
-        type: 'page',
-        name: params.name,
-        args: params,
-      });
-      return executeGenerator(command, root);
+      try {
+        const command = buildCommand(binPath, {
+          type: 'page',
+          name: params.name,
+          args: params,
+        });
+        const result = executeGenerator(command, root);
+        return { success: true, data: result };
+      } catch (error: any) {
+        return { success: false, data: error.message || `Failed to generate page ${params.name}` };
+      }
     },
   });
 
@@ -69,12 +74,17 @@ export const umiGenerate = async ({
       name: z.string().describe('Component name to generate'),
     }),
     execute: async (params) => {
-      const command = buildCommand(binPath, {
-        type: 'component',
-        name: params.name,
-        args: params,
-      });
-      return executeGenerator(command, root);
+      try {
+        const command = buildCommand(binPath, {
+          type: 'component',
+          name: params.name,
+          args: params,
+        });
+        const result = executeGenerator(command, root);
+        return { success: true, data: result };
+      } catch (error: any) {
+        return { success: false, data: error.message || `Failed to generate component ${params.name}` };
+      }
     },
   });
 
@@ -86,11 +96,16 @@ export const umiGenerate = async ({
       name: z.string().describe('API route name to generate'),
     }),
     execute: async (params) => {
-      const command = buildCommand(binPath, {
-        type: 'api',
-        name: params.name,
-      });
-      return executeGenerator(command, root);
+      try {
+        const command = buildCommand(binPath, {
+          type: 'api',
+          name: params.name,
+        });
+        const result = executeGenerator(command, root);
+        return { success: true, data: result };
+      } catch (error: any) {
+        return { success: false, data: error.message || `Failed to generate api ${params.name}` };
+      }
     },
   });
 
@@ -102,11 +117,16 @@ export const umiGenerate = async ({
       name: z.string().describe('Mock file name to generate'),
     }),
     execute: async (params) => {
-      const command = buildCommand(binPath, {
-        type: 'mock',
-        name: params.name,
-      });
-      return executeGenerator(command, root);
+      try {
+        const command = buildCommand(binPath, {
+          type: 'mock',
+          name: params.name,
+        });
+        const result = executeGenerator(command, root);
+        return { success: true, data: result };
+      } catch (error: any) {
+        return { success: false, data: error.message || `Failed to generate mock ${params.name}` };
+      }
     },
   });
 
@@ -122,7 +142,12 @@ export const umiGenerate = async ({
         ),
     }),
     execute: async (params) => {
-      return executeGenerator(`${binPath} g ${params.type}`, root);
+      try {
+        const result = executeGenerator(`${binPath} g ${params.type}`, root);
+        return { success: true, data: result };
+      } catch (error: any) {
+        return { success: false, data: error.message || `Failed to generate ${params.type}` };
+      }
     },
   });
 };

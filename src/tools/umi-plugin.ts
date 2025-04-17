@@ -13,9 +13,13 @@ export const umiPlugin = async ({
     description: `List all plugins of the ${frameworkName} project`,
     parameters: z.object({}),
     execute: async () => {
-      const { binPath } = parse(root);
-      const result = execSync(`${binPath} plugin list`, { cwd: root });
-      return result.toString();
+      try {
+        const { binPath } = parse(root);
+        const result = execSync(`${binPath} plugin list`, { cwd: root });
+        return { success: true, data: result.toString() };
+      } catch (error: any) {
+        return { success: false, data: error.message || 'Failed to list plugins' };
+      }
     },
   });
 };

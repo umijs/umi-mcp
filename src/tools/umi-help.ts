@@ -9,9 +9,13 @@ export const umiHelp = async ({ server, root, frameworkName }: ToolContext) => {
     description: `Get help description for ${frameworkName}`,
     parameters: z.object({}),
     execute: async () => {
-      const { binPath } = parse(root);
-      const result = execSync(`${binPath} help`, { cwd: root });
-      return result.toString();
+      try {
+        const { binPath } = parse(root);
+        const result = execSync(`${binPath} help`, { cwd: root });
+        return { success: true, data: result.toString() };
+      } catch (error: any) {
+        return { success: false, data: error.message || 'Failed to get help' };
+      }
     },
   });
 };

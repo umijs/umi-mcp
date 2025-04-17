@@ -50,11 +50,12 @@ export const umiBuild = async ({
           cwd: root,
           timeout: 5 * 60000,
         });
-        return result.toString();
-      } catch (error) {
-        throw new Error(
-          `Build failed. Please check the error message above.\n${error}`,
-        );
+        return { success: true, data: result.toString() };
+      } catch (error: any) {
+        return {
+          success: false,
+          data: `Build failed. Please check the error message above.\n${error.message || error}`,
+        };
       }
     },
   });

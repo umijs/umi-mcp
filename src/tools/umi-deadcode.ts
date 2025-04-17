@@ -13,9 +13,13 @@ export const umiDeadcode = async ({
     description: `Find the dead code of the ${frameworkName} project`,
     parameters: z.object({}),
     execute: async () => {
-      const { binPath } = parse(root);
-      const result = execSync(`${binPath} deadcode`, { cwd: root });
-      return result.toString();
+      try {
+        const { binPath } = parse(root);
+        const result = execSync(`${binPath} deadcode`, { cwd: root });
+        return { success: true, data: result.toString() };
+      } catch (error: any) {
+        return { success: false, data: error.message || 'Failed to run deadcode check' };
+      }
     },
   });
 };
