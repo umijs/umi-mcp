@@ -1,0 +1,34 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# MCP Tools Implementation
+
+## Tool Structure
+- All MCP tools should follow a consistent structure
+- Each tool is defined in `src/tools/` with a prefix of `umi-`
+- Tools should export a function that returns a `Tool` object
+- Tools should define input and output schemas
+
+## Input/Output Schemas
+- Define input schemas using zod
+- Define output schemas to match expected return values
+- Follow [MCP spec](mdc:https:/github.com/ModelContractProtocol/spec) for schema definitions
+- Use descriptive names for schema properties
+
+## Error Handling
+- Use proper error handling with descriptive messages
+- Return structured error responses when appropriate
+- Validate inputs before processing
+
+## Tool Implementation
+- Keep tool implementations focused on a single responsibility
+- Reuse common code for similar tools (like config management)
+- Document tools with clear descriptions
+- Export tools in the `src/index.ts` file for consumption
+
+## Examples
+- Config tools: [umi-config.ts](mdc:src/tools/umi-config.ts)
+- Generator tools: [umi-generate.ts](mdc:src/tools/umi-generate.ts)
+- Data retrieval tools: [umi-route-list.ts](mdc:src/tools/umi-route-list.ts)

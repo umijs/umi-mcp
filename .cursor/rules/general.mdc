@@ -1,15 +1,21 @@
 ---
 description: General Rules
-globs: 
+globs:
 alwaysApply: false
 ---
 # General
 - Use pnpm to install dependencies
+- This is an MCP (Model Context Protocol) collection for the umi framework
 
 # Build & Test Commands
-- Build: `bun build src/cli.ts --minify --outfile dist/cli.mjs --target=node`
-- Dev: `tsx ./src/cli.ts`
-- Format: `prettier --write .`
+- Dev: `pnpm dev` or `mcp-inspector tsx ./src/cli.ts fixtures/normal`
+- Build CLI: `pnpm build:cli` or `bun build src/cli.ts --external effect --external @valibot/to-json-schema --minify --outfile dist/cli.mjs --target=node`
+- Build Index: `pnpm build:index` or `bun build src/index.ts --external fastmcp --minify --outfile dist/index.mjs --target=node`
+- Build All: `pnpm build`
+- Format: `pnpm format` or `prettier --write .`
+- Test: `pnpm test` or `vitest run`
+- Watch Tests: `pnpm test:watch` or `vitest`
+- Type Check: `pnpm typecheck` or `tsc --noEmit`
 
 # Code Style Guidelines
 - TypeScript with strict type checking
@@ -35,3 +41,4 @@ alwaysApply: false
 - camelCase for variables/functions
 - Use type over interface where possible
 - Suffix tool classes with 'Tool'
+- MCP tools are prefixed with 'umi-' (e.g., umi-help, umi-config-list)

@@ -1,0 +1,32 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Contribution Guidelines
+
+## Getting Started
+1. Fork the repository
+2. Clone your fork
+3. Install dependencies with `pnpm install`
+4. Make your changes
+5. Run tests with `pnpm test`
+6. Submit a pull request
+
+## Pull Request Process
+- Ensure your code follows the style guidelines
+- Add tests for new features
+- Update documentation if necessary
+- Follow the commit message conventions
+
+## Development Workflow
+- Use feature branches
+- Keep pull requests focused on a single feature/fix
+- Ensure all tests pass before submitting
+- Follow the TypeScript coding standards
+- Document any new MCP tools thoroughly
+
+## Release Process
+- Releases are handled via `pnpm release`
+- This creates a Git tag and GitHub release
+- The release process also generates changelog entries

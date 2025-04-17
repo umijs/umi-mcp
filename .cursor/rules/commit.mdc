@@ -1,10 +1,10 @@
 ---
-description: Commit Message
-globs: 
+description: Rule for Commit message with Git
+globs:
 alwaysApply: false
 ---
 
-# Your rule content
+# Rule for Commit message with Git
 
 - Follow Angular Commit Message Spec
 - Format: `type(scope): subject`
