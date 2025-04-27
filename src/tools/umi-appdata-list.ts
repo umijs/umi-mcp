@@ -18,8 +18,10 @@ export const umiAppdataList = async ({
     execute: async (): Promise<any> => {
       try {
         const { absTmpPath } = getPaths(root, frameworkName);
-
-        if (!existsSync(absTmpPath)) {
+        if (
+          !existsSync(absTmpPath) ||
+          !existsSync(`${absTmpPath}/appData.json`)
+        ) {
           const { binPath } = parse(root);
           execSync(`${binPath} setup`, { cwd: root });
         }
@@ -31,17 +33,11 @@ export const umiAppdataList = async ({
         );
         const appDataJson = JSON.parse(readFileSync(appDataPath, 'utf-8'));
         return {
-          success: true,
-          data: {
-            type: 'text',
-            text: JSON.stringify(appDataJson, null, 2),
-          },
+          type: 'text',
+          text: JSON.stringify(appDataJson, null, 2),
         };
       } catch (error: any) {
-        return {
-          success: false,
-          data: error.message || 'Failed to list app data',
-        };
+        return error.message || 'Failed to list app data';
       }
     },
   });

@@ -16,9 +16,15 @@ export const umiDeadcode = async ({
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} deadcode`, { cwd: root });
-        return { success: true, data: result.toString() };
+        return {
+          type: 'text',
+          text: result.toString()
+        };
       } catch (error: any) {
-        return { success: false, data: error.message || 'Failed to run deadcode check' };
+        return {
+          type: 'text',
+          text: error.message || 'Failed to run deadcode check'
+        };
       }
     },
   });

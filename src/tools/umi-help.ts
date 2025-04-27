@@ -12,9 +12,13 @@ export const umiHelp = async ({ server, root, frameworkName }: ToolContext) => {
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} help`, { cwd: root });
-        return { success: true, data: result.toString() };
+        return {
+          type: 'text',
+          text: result.toString(),
+        };
       } catch (error: any) {
-        return { success: false, data: error.message || 'Failed to get help' };
+        console.error(`error: ${error}`);
+        return { type: 'text', text: error.message || 'Failed to get help' };
       }
     },
   });

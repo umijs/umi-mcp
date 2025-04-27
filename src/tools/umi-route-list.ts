@@ -32,16 +32,13 @@ export const umiRouteList = async ({
         const appDataJson = JSON.parse(readFileSync(appDataPath, 'utf-8'));
         const routes = appDataJson.defaultConfig?.routes || [];
         return {
-          success: true,
-          data: {
-            type: 'text',
-            text: JSON.stringify(routes, null, 2),
-          },
+          type: 'text',
+          text: JSON.stringify(routes, null, 2)
         };
       } catch (error: any) {
         return {
-          success: false,
-          data: error.message || 'Failed to list routes',
+          type: 'text',
+          text: error.message || 'Failed to list routes'
         };
       }
     },

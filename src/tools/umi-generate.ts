@@ -59,9 +59,15 @@ export const umiGenerate = async ({
           args: params,
         });
         const result = executeGenerator(command, root);
-        return { success: true, data: result };
+        return {
+          type: 'text',
+          text: result
+        };
       } catch (error: any) {
-        return { success: false, data: error.message || `Failed to generate page ${params.name}` };
+        return {
+          type: 'text',
+          text: error.message || `Failed to generate page ${params.name}`
+        };
       }
     },
   });
@@ -81,9 +87,15 @@ export const umiGenerate = async ({
           args: params,
         });
         const result = executeGenerator(command, root);
-        return { success: true, data: result };
+        return {
+          type: 'text',
+          text: result
+        };
       } catch (error: any) {
-        return { success: false, data: error.message || `Failed to generate component ${params.name}` };
+        return {
+          type: 'text',
+          text: error.message || `Failed to generate component ${params.name}`
+        };
       }
     },
   });
@@ -102,9 +114,15 @@ export const umiGenerate = async ({
           name: params.name,
         });
         const result = executeGenerator(command, root);
-        return { success: true, data: result };
+        return {
+          type: 'text',
+          text: result
+        };
       } catch (error: any) {
-        return { success: false, data: error.message || `Failed to generate api ${params.name}` };
+        return {
+          type: 'text',
+          text: error.message || `Failed to generate api ${params.name}`
+        };
       }
     },
   });
@@ -123,9 +141,15 @@ export const umiGenerate = async ({
           name: params.name,
         });
         const result = executeGenerator(command, root);
-        return { success: true, data: result };
+        return {
+          type: 'text',
+          text: result
+        };
       } catch (error: any) {
-        return { success: false, data: error.message || `Failed to generate mock ${params.name}` };
+        return {
+          type: 'text',
+          text: error.message || `Failed to generate mock ${params.name}`
+        };
       }
     },
   });
@@ -144,9 +168,15 @@ export const umiGenerate = async ({
     execute: async (params): Promise<any> => {
       try {
         const result = executeGenerator(`${binPath} g ${params.type}`, root);
-        return { success: true, data: result };
+        return {
+          type: 'text',
+          text: result
+        };
       } catch (error: any) {
-        return { success: false, data: error.message || `Failed to generate ${params.type}` };
+        return {
+          type: 'text',
+          text: error.message || `Failed to generate ${params.type}`
+        };
       }
     },
   });

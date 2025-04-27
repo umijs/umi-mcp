@@ -22,7 +22,7 @@ export function parse(root: string) {
       `It is not a umi or @umijs/max or @alipay/bigfish project: ${root}`,
     );
   }
-  const binPath = (() => {
+  const getBinPath = () => {
     try {
       if (isUmi) {
         return resolve.sync('umi/bin/umi.js', { basedir: root });
@@ -32,9 +32,22 @@ export function parse(root: string) {
       }
       return resolve.sync('@alipay/bigfish/bin/bigfish.js', { basedir: root });
     } catch (e) {
+      const binDir = path.join(root, 'node_modules', '.bin');
+      if (fs.existsSync(binDir)) {
+        if (isUmi && fs.existsSync(path.join(binDir, 'umi'))) {
+          return path.join(binDir, 'umi');
+        }
+        if (isMax && fs.existsSync(path.join(binDir, 'max'))) {
+          return path.join(binDir, 'max');
+        }
+        if (fs.existsSync(path.join(binDir, 'bigfish'))) {
+          return path.join(binDir, 'bigfish');
+        }
+      }
       throw new UserError(`Failed to resolve bin path: ${e}`);
     }
-  })();
+  };
+  const binPath = getBinPath();
   const binName = (() => {
     if (isUmi) {
       return 'umi';

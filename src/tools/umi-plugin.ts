@@ -16,9 +16,15 @@ export const umiPlugin = async ({
       try {
         const { binPath } = parse(root);
         const result = execSync(`${binPath} plugin list`, { cwd: root });
-        return { success: true, data: result.toString() };
+        return {
+          type: 'text',
+          text: result.toString()
+        };
       } catch (error: any) {
-        return { success: false, data: error.message || 'Failed to list plugins' };
+        return {
+          type: 'text',
+          text: error.message || 'Failed to list plugins'
+        };
       }
     },
   });
