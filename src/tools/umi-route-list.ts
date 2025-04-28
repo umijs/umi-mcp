@@ -17,9 +17,11 @@ export const umiRouteList = async ({
     parameters: z.object({}),
     execute: async (): Promise<any> => {
       try {
-        const { absTmpPath } = getPaths(root, frameworkName);
-
-        if (!existsSync(absTmpPath)) {
+        const { absTmpPath } = getPaths(root);
+        if (
+          !existsSync(absTmpPath) ||
+          !existsSync(`${absTmpPath}/appData.json`)
+        ) {
           const { binPath } = parse(root);
           execSync(`${binPath} setup`, { cwd: root });
         }
@@ -30,15 +32,14 @@ export const umiRouteList = async ({
           `${appDataPath} is not exist, please upgrade to the latest version of ${frameworkName}`,
         );
         const appDataJson = JSON.parse(readFileSync(appDataPath, 'utf-8'));
-        const routes = appDataJson.defaultConfig?.routes || [];
         return {
           type: 'text',
-          text: JSON.stringify(routes, null, 2)
+          text: JSON.stringify(appDataJson.routes, null, 2),
         };
       } catch (error: any) {
         return {
           type: 'text',
-          text: error.message || 'Failed to list routes'
+          text: error.message || 'Failed to list routes',
         };
       }
     },

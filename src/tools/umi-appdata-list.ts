@@ -17,7 +17,7 @@ export const umiAppdataList = async ({
     parameters: z.object({}),
     execute: async (): Promise<any> => {
       try {
-        const { absTmpPath } = getPaths(root, frameworkName);
+        const { absTmpPath } = getPaths(root);
         if (
           !existsSync(absTmpPath) ||
           !existsSync(`${absTmpPath}/appData.json`)
@@ -32,9 +32,14 @@ export const umiAppdataList = async ({
           `${appDataPath} is not exist, please upgrade to the latest version of ${frameworkName}`,
         );
         const appDataJson = JSON.parse(readFileSync(appDataPath, 'utf-8'));
+        const summary = {
+          structure: Object.keys(appDataJson),
+          totalSize: JSON.stringify(appDataJson).length,
+          moreInfo: 'see src/.umi/appData.json',
+        };
         return {
           type: 'text',
-          text: JSON.stringify(appDataJson, null, 2),
+          text: JSON.stringify(summary, null, 2),
         };
       } catch (error: any) {
         return error.message || 'Failed to list app data';

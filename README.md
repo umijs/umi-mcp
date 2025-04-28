@@ -30,7 +30,6 @@ MCP collection for the [umi](https://github.com/umijs/umi) framework.
 - `umi-version`, Show the version of the umi project.
 - `umi-route-list`, List all routes of the umi project. (Based on the appData under `.umi` directory)
 - `umi-appdata-list`, List detailed app data of the umi project. (Based on the appData under `.umi` directory)
-- `umi-changelog`, Show the changelog of the umi and @umijs/max.
 
 ## Usage
 
