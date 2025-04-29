@@ -1,3 +1,10 @@
+## 0.0.11
+
+`2025-04-29`
+
+- refactor: standardize tool response format and update dependencies by [@Wu-kung](https://github.com/Wu-kung) in [#8](https://github.com/umijs/umi-mcp/pull/8)
+
+
 ## 0.0.10
 
 `2025-04-17`
