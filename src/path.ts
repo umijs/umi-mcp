@@ -13,10 +13,10 @@ function winJoin(...args: string[]) {
   return winPath(join(...args));
 }
 
-export function getPaths(cwd: string, frameworkName: string) {
+export function getPaths(cwd: string) {
   const src = winJoin(cwd, 'src');
   const absSrcPath = existsSync(src) && statSync(src).isDirectory() ? src : cwd;
-  const absTmpPath = winJoin(absSrcPath, `.${frameworkName}`);
+  const absTmpPath = winJoin(absSrcPath, '.umi');
   return {
     absSrcPath,
     absTmpPath,

@@ -38,12 +38,26 @@ export const umiLint = async ({ server, root, frameworkName }: ToolContext) => {
           stylelintOnly ? '--stylelint-only' : '',
           stylelintOnly && cssinjs ? '--cssinjs' : '',
         ].filter(Boolean);
-        const result = execSync(`${binPath} lint ${flags.join(' ')}`, {
-          cwd: root,
-        });
-        return { success: true, data: result.toString() };
+        const command = `${binPath} lint ${flags.join(' ')}`;
+        try {
+          const result = execSync(command, { cwd: root });
+          return {
+            type: 'text',
+            text: result.toString(),
+          };
+        } catch (error: any) {
+          if (error.stdout && error.stdout.length > 0) {
+            return {
+              type: 'text',
+              text: error.stdout.toString(),
+            };
+          }
+        }
       } catch (error: any) {
-        return { success: false, data: error.message || 'Failed to run lint' };
+        return {
+          type: 'text',
+          text: error.message || 'Failed to run lint',
+        };
       }
     },
   });

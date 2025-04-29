@@ -17,9 +17,11 @@ export const umiAppdataList = async ({
     parameters: z.object({}),
     execute: async (): Promise<any> => {
       try {
-        const { absTmpPath } = getPaths(root, frameworkName);
-
-        if (!existsSync(absTmpPath)) {
+        const { absTmpPath } = getPaths(root);
+        if (
+          !existsSync(absTmpPath) ||
+          !existsSync(`${absTmpPath}/appData.json`)
+        ) {
           const { binPath } = parse(root);
           execSync(`${binPath} setup`, { cwd: root });
         }
@@ -30,18 +32,17 @@ export const umiAppdataList = async ({
           `${appDataPath} is not exist, please upgrade to the latest version of ${frameworkName}`,
         );
         const appDataJson = JSON.parse(readFileSync(appDataPath, 'utf-8'));
+        const summary = {
+          structure: Object.keys(appDataJson),
+          totalSize: JSON.stringify(appDataJson).length,
+          moreInfo: 'see src/.umi/appData.json',
+        };
         return {
-          success: true,
-          data: {
-            type: 'text',
-            text: JSON.stringify(appDataJson, null, 2),
-          },
+          type: 'text',
+          text: JSON.stringify(summary, null, 2),
         };
       } catch (error: any) {
-        return {
-          success: false,
-          data: error.message || 'Failed to list app data',
-        };
+        return error.message || 'Failed to list app data';
       }
     },
   });
