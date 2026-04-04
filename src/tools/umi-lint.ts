@@ -51,6 +51,11 @@ export const umiLint = async ({ server, root, frameworkName }: ToolContext) => {
               type: 'text',
               text: error.stdout.toString(),
             };
+          } else {
+            return {
+              type: 'text',
+              text: error.message || 'Lint failed',
+            };
           }
         }
       } catch (error: any) {
